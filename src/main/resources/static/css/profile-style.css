@@ -1,0 +1,46 @@
+.container {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+  
+.container:hover .element {
+    animation-play-state: running;
+} 
+
+.container:not(:hover) .element {
+    animation-play-state: paused;
+}
+  
+.element {
+    width: 100%;
+    height: 100%;
+    background-color: #e0e0e0;
+    animation: make-up-the-square 2s linear infinite;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@keyframes make-up-the-square {
+    0% {
+        transform: translateX(0%);
+    }
+    25% {
+        background-color: #000000;
+        transform: translateY(100%);
+    }
+    50% {
+        background-color: #e0e0e0;
+        transform: translate(100%, 100%);
+    }
+    75% {
+        background-color: #000000;
+        transform: translateX(100%);
+    }
+    100%{
+        background-color: #e0e0e0;
+        transform: translateX(0%);  
+    }
+}
