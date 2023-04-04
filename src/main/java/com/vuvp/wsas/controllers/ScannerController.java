@@ -25,10 +25,17 @@ public class ScannerController {
     }
 
 
+
     //SQL Injection
 
 
+
     //HTTPS/HTTP
+
+
+
+    //5 user response time in parallel compared to 1 use response time
+
 
 
 }
