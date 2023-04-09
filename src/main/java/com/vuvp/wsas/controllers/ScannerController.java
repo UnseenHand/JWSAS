@@ -9,8 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.security.KeyManagementException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
 
 @Controller
 @CrossOrigin(origins = "*")
@@ -45,7 +49,8 @@ public class ScannerController {
     // Send a simple Get/Post Request by the url parameter and measure the response time.
     @PostMapping("/getResponseTime")
     @ResponseBody
-    public long getResponseTime(@RequestBody LoadTestRequest loadTestRequest) {
+    public long getResponseTime(@RequestBody LoadTestRequest loadTestRequest)
+            throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
         return responseTimeService.getResponseTime(loadTestRequest.getUrl(), loadTestRequest.getRequestMethod());
     }
 

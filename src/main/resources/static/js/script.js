@@ -1,4 +1,3 @@
-debugger;
 // Get the DOM elements
 const modal = document.getElementById('config-modal');
 const configButton = document.getElementById('config-button');
@@ -115,7 +114,6 @@ function getResponseTime(data) {
 // Getting the URL protocol type
 function getURLProtocol(data) {
   const xhr = new XMLHttpRequest();
-  console.log(baseUrl);
   xhr.open('POST', baseUrl + 'scanUrlForProtocol');
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onload = function(){
