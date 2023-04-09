@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scan URL</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/index-style.css" />
+    <script>
+        var baseUrl = "http://localhost:8080/scanner/";
+    </script>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <h1>Scan URL</h1>
+    </header>
+    <main>
+        <div id="form-container">
+            <form id="scan-form">
+                <div id="input-container">
+                    <select id="method-select">
+                        <option value="GET">GET</option>
+                        <option value="POST">POST</option>
+                        <!-- Soon
+                        <option value="PUT">PUT</option>
+                        <option value="DELETE">DELETE</option>
+                        -->
+                    </select>
+                    <input type="text" id="url-input" placeholder="Enter URL" />
+                    <button type="submit" id="scan-button">Scan</button>
+                    <div id="option-container">
+                        <div id="scan-options">
+                            <button type="button" id="options-button">
+                                Scan Options &#9660;
+                            </button>
+                            <ul id="options-list">
+                                <li>
+                                    <input
+                                            type="radio"
+                                            id="response-time-radio"
+                                            name="scan-option"
+                                            value="response-time"
+                                            checked
+                                    />
+                                    <label for="response-time-radio">Response Time</label>
+                                </li>
+                                <li>
+                                    <input
+                                            type="radio"
+                                            id="protocol-radio"
+                                            name="scan-option"
+                                            value="protocol"
+                                    />
+                                    <label for="protocol-radio">Protocol</label>
+                                </li>
+                                <li>
+                                    <input
+                                            type="radio"
+                                            id="performance-radio"
+                                            name="scan-option"
+                                            value="performance"
+                                    />
+                                    <label for="performance-radio">Performance</label>
+                                    <button type="button" id="config-button">⚙</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- Add this div to the end of your HTML body -->
+        <div id="config-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Configure Performance Test</h3>
+                <form id="lt-data-form">
+                    <div class="form-group">
+                        <label for="users">Users (Threads):</label>
+                        <input type="number" id="users" name="users" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="load-time">Users Load Time:</label>
+                        <input type="number" id="load-time" name="load-time" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loop-count">Loop Count:</label>
+                        <input type="number" id="loop-count" name="loop-count" min="1" required>
+                    </div>
+                    <button type="submit" class="btn" id="lt-submit-data" name="lt-submit-data">OK</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 - Scan URL</p>
+    </footer>
+</div>
+
+<script src="/js/script.js"></script>
+</body>
+</html>
